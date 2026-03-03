@@ -1,0 +1,206 @@
+# Python Interview Practice
+#Purpose:
+# To strengthen core Python concepts required for Data Analyst interviews and coding rounds.
+#Topics Covered
+- Variables & Data Types
+- Conditional Statements
+- Loops
+- Functions
+- Lists, Tuples, Sets, Dictionaries
+- String Manipulation
+- File Handling
+- Exception Handling
+- Object-Oriented Programming
+- Python Built-in Functions
+- Basic Problem Solving
+
+##  Practice Type
+- Basic Level Questions
+- Intermediate Coding Problems
+- Interview-Oriented Questions
+- Logic Building Exercises
+
+# Reverse a string without using [::-1]
+text = "Python"
+reverse_text = ""
+for char in text:
+    reverse_text = char + reverse_text
+print(reverse_text)
+
+
+# Check if a string is palindrome (palindrome means the reverse of string is equal to the string)
+word = "madam"
+if word == word[::-1]:
+    print("It is a palindrome")
+else:
+    print("Not a palindrome")
+    
+
+# Remove duplicates from a list
+list1 = [1,2,2,3,4,4,5]
+a = set(list1)
+print(a)
+list2 = list(a)
+print(list2)
+
+
+#Find Second largest number
+numbers = [10, 45, 32, 67, 89, 67, 89]
+largest = float('-inf')
+second_largest = float('-inf')
+
+for num in numbers:
+    if num > largest:
+        second_largest = largest
+        largest = num
+    elif num > second_largest and num != largest:
+        second_largest = num
+
+print(second_largest)
+
+
+# Count frequency of each word
+sentence = "data science is fun and data analysis is powerful"
+words = sentence.split()
+word_count = {}
+for word in words:
+    if word in word_count:
+        word_count[word] +=1 
+    else:
+        word_count[word] = 1
+print(word_count)
+
+
+# Find common elements between 2 lists
+lis1 = [1,2,3,4]
+lis2 = [3,4,5,6]
+common = []
+for i in lis1:
+    if i in lis2:
+        common.append(i)
+print(common)
+
+
+# Move all zeros to the end
+numbers = [0,1,0,3,12]
+non_zero = []
+zeros = []
+for num in numbers:
+    if num == 0:
+        zeros.append(num)
+    else:
+        non_zero.append(num)
+result = non_zero + zeros
+print(result)
+
+
+# Flatten nested  list
+nested = [[1,2],[3,4],5]
+flat = []
+for sublist in nested:
+    for item in sublist:
+        flat.append(item)
+print(flat)
+
+
+# Check anagram ( anagrm means if we sort two strings the output should be same)
+str1 = "listen"
+str2 = "silent"
+if sorted(str1)==sorted(str2):
+    print("Anagram")
+else:
+    print("Not anagram")
+sorted(str1)
+sorted(str2)
+
+
+# First non repeating character
+text = "aabbcdde"
+for char in text:
+    if text.count(char)==1:
+        print(char)
+        break
+
+
+# find the missing number/ missing number = expected sum - actual sum
+# here we calculate the sum from 1-6 = n(n+1)/2 = 21
+# the actual sum is 17 so 21-17=4
+numbers = [1,2,3,5,6]
+n = 6
+expected_sum = n*(n+1)/2
+actual_sum = sum(numbers)
+missing_value = expected_sum - actual_sum
+print("The missing number is:",missing_value)
+
+    
+# find pair with given sum
+numbers = [2, 4, 3, 5, 7, 8, 9]
+target = 7
+for i in range(len(numbers)):
+    for j in range(i+1,len(numbers)):
+        if numbers[i] + numbers[j] == target:
+            print(numbers[i],numbers[j])
+  
+############# OR ########
+numbers = [2,4,3,5,7,8,9]
+target = 7
+seen = set()
+for num in numbers:
+    needed = target - num
+    if needed in seen:
+        print((needed,num))
+    seen.add(num)
+print(seen)
+
+
+# Rotate list to the right by k steps
+nums = [1,2,3,4,5]
+k = 2 
+for i in range(k):
+    last = nums.pop()
+    nums.insert(0,last)
+print(nums)
+
+
+# Find the longest word in the sentence
+sentence = "Python is powerful and easy to learn"
+words = sentence.split()
+print(words)
+longest_word = ""
+for word in words:
+    if len(word)>len(longest_word):
+        longest_word = word
+print(longest_word)
+
+
+# merge two dictionary
+d1 = {"a":1, "b":2}
+d2 = {"b":3, "c":4}
+merged = {**d1,**d2}
+print(merged)
+
+
+# Find the first non repeating element in the list
+numbers = [4,5,1,2,0,4]
+for num in numbers:
+    if numbers.count(num) ==1:
+        print(num)
+        break
+
+
+# Check if the list is sorted
+numbers = [1,2,3,4,5]
+if numbers == sorted(numbers):
+    print("True")
+else:
+    print("False")
+
+
+
+# Removing duplicates from a string
+str1 = "Programming"
+result = ""
+for char in str1:
+    if char not in result:
+        result = result+ char
+print(result)
